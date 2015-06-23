@@ -1,0 +1,841 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:wpfKit="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:Themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit"
+                    >
+
+        <!--Colors-->
+        <Color x:Key="customBlue"  A="255"   R="54" G="95" B="179"/>
+        <Color x:Key="customRed"  A="255" R="230" G="69" B="69"/>
+        <Color x:Key="backColor" A="255" R="255" G="255" B="255"></Color>
+        <SolidColorBrush x:Key="customBlueBrush" Color="{StaticResource customBlue}"></SolidColorBrush>
+        <SolidColorBrush x:Key="customDarkRedBrush" Color="{StaticResource customRed}"></SolidColorBrush>
+        <SolidColorBrush x:Key="customBackgroundBrush" Color="{StaticResource backColor}"/>
+        <SolidColorBrush x:Key="BlueopacityBrush" Color="{StaticResource customBlue}"  Opacity="0.2"></SolidColorBrush>
+        <SolidColorBrush x:Key="BlueopacityBrush5" Color="{StaticResource customBlue}" Opacity="0.5"></SolidColorBrush>
+        <SolidColorBrush x:Key="WhiteOpacity" Color="White" Opacity="0.4"></SolidColorBrush>
+
+
+        <!--ColorPicker Slider-->
+        <Style x:Key="Color_SliderRepeatButton" TargetType="RepeatButton">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border SnapsToDevicePixels="True" Background="White"  BorderThickness="1" BorderBrush="White" Height="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Color_SliderThumb" TargetType="Thumb">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Ellipse Height="10" Width="10" SnapsToDevicePixels="True" Fill="White"></Ellipse>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="Color_Slider"  TargetType="Slider">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Track Grid.Row="1" x:Name="PART_Track"   >
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource Color_SliderRepeatButton}"  Command="Slider.DecreaseLarge" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource Color_SliderThumb}"  />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource Color_SliderRepeatButton}" Command="Slider.IncreaseLarge" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="RGBA_Slider" TargetType="Slider">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Horizontal">
+                    <Setter Property="MinHeight" Value="22" />
+                    <Setter Property="MinWidth" Value="104" />
+                    <Setter Property="Template" Value="{StaticResource Color_Slider}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!---->
+    
+    
+    <!--ColorPickerTextBox-->
+        <Style x:Key="Picker_TextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.BasedOn>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.BasedOn>
+                        <Style TargetType="{x:Type TextBoxBase}">
+                            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="AllowDrop" Value="True"/>
+                            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+                            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                            <Setter Property="CaretBrush" Value="White"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" HorizontalAlignment="Center" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Opacity" TargetName="border" Value="0.4"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                                <Setter Property="BorderThickness" TargetName="border" Value="1"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource customDarkRedBrush}"/>
+                                            </Trigger>
+                                            <Trigger Property="Validation.HasError" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource customDarkRedBrush}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="True"/>
+                                        <Condition Property="IsSelectionActive" Value="False"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="SelectionBrush" Value="{StaticResource WhiteOpacity}"/>
+                                </MultiTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Style.BasedOn>
+                </Style>
+            </Style.BasedOn>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="False">
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!---->
+    
+    <!--Button style : Go back button-->
+        <Style x:Key="Rectangle_Btn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Height="{TemplateBinding Height}" Background="White" Width="{TemplateBinding Width}">
+                            <Grid Height="{TemplateBinding Height}" Background="{TemplateBinding Background}" Width="{TemplateBinding Width}">
+                                <Border x:Name="MouseOverBorder" Opacity="0" SnapsToDevicePixels="True" UseLayoutRounding="True" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" Background="Transparent" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{TemplateBinding Padding}"></Border>
+                                <ContentControl x:Name="con" ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                <TextBlock x:Name="ContentStyle" Margin="{Binding Path=Tag,RelativeSource={RelativeSource TemplatedParent}}" Text="{TemplateBinding Content}"  TextElement.Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="MouseOverBorder" Property="Opacity" Value="1"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="MouseOverBorder" Property="Opacity" Value="1"></Setter>
+                                <Setter TargetName="MouseOverBorder" Property="Background" Value="White"></Setter>
+                                <Setter TargetName="con" Property="Foreground" Value="{Binding Path=Background,RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="ContentStyle" Value="{Binding Path=Background,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter  Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!---->
+    
+    
+    <!--ColorName Tooltip-->
+        <Style x:Key="Blue_Icon_Tooltipstyle" TargetType="ToolTip">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Grid>
+                            <Border BorderBrush="Transparent" BorderThickness="1" SnapsToDevicePixels="True"  Background="White">
+                                <Border BorderBrush="{StaticResource customBlueBrush}" BorderThickness="1" SnapsToDevicePixels="True"  >
+                                    <TextBlock  Margin="5" Foreground="{StaticResource customBlueBrush}"  FontFamily="Segoe Ui Dark" FontSize="12" >
+                             <ContentPresenter></ContentPresenter>
+                                    </TextBlock>
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
+
+        <Style x:Key="ColorPickerToggleButton" TargetType="ToggleButton">
+            <Setter Property="Foreground" Value="{StaticResource customBlueBrush}"></Setter>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="FocusManager.IsFocusScope" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton" >
+                        <Grid Focusable="False">
+                            <Border Focusable="False" x:Name="Border" Padding="2" SnapsToDevicePixels="True"  CornerRadius="3"  BorderBrush="{StaticResource customBlueBrush}" BorderThickness="1">
+                                <ContentPresenter x:Name="abc" Margin="-2"  Focusable="False"/>
+                            </Border>
+                            <Path Focusable="False" x:Name="Arrow"    Stroke="{StaticResource customBlueBrush}" Fill="Transparent" StrokeThickness="1" HorizontalAlignment="Right" VerticalAlignment="Center" Data="M 0 0 L 7 7 L 14 0 Z" Margin="0,0,10,0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style TargetType="{x:Type wpfKit:ColorCanvas}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type wpfKit:ColorCanvas}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="3">
+                            <Grid Margin="2" Width="280">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="260"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Border BorderBrush="DarkGray" BorderThickness="1" ClipToBounds="True">
+                                        <Border.Background>
+                                            <DrawingBrush TileMode="Tile" Viewport="0,0,10,10" ViewportUnits="Absolute">
+                                                <DrawingBrush.Drawing>
+                                                    <DrawingGroup>
+                                                        <GeometryDrawing Brush="White">
+                                                            <GeometryDrawing.Geometry>
+                                                                <RectangleGeometry Rect="0,0,100,100"/>
+                                                            </GeometryDrawing.Geometry>
+                                                        </GeometryDrawing>
+                                                        <GeometryDrawing Brush="LightGray">
+                                                            <GeometryDrawing.Geometry>
+                                                                <GeometryGroup>
+                                                                    <RectangleGeometry Rect="0,0,50,50"/>
+                                                                    <RectangleGeometry Rect="50,50,50,50"/>
+                                                                </GeometryGroup>
+                                                            </GeometryDrawing.Geometry>
+                                                        </GeometryDrawing>
+                                                    </DrawingGroup>
+                                                </DrawingBrush.Drawing>
+                                            </DrawingBrush>
+                                        </Border.Background>
+                                        <Canvas x:Name="PART_ColorShadingCanvas" HorizontalAlignment="Left" Height="120"  VerticalAlignment="Top" Width="500">
+                                            <Rectangle x:Name="ColorShadingRectangle" Height="{Binding Height, ElementName=PART_ColorShadingCanvas}" Width="{Binding Width, ElementName=PART_ColorShadingCanvas}">
+                                                <Rectangle.Fill>
+                                                    <Binding ElementName="PART_SpectrumSlider" Path="SelectedColor">
+                                                        <Binding.Converter>
+                                                            <wpfKit:ColorToSolidColorBrushConverter/>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                            <Rectangle x:Name="WhiteGradient" Height="{Binding Height, ElementName=PART_ColorShadingCanvas}" Width="{Binding Width, ElementName=PART_ColorShadingCanvas}">
+                                                <Rectangle.Fill>
+                                                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                                                        <GradientStop Color="White" Offset="0"/>
+                                                        <GradientStop Color="Transparent" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                            <Rectangle x:Name="BlackGradient" Height="{Binding Height, ElementName=PART_ColorShadingCanvas}" Width="{Binding Width, ElementName=PART_ColorShadingCanvas}">
+                                                <Rectangle.Fill>
+                                                    <LinearGradientBrush EndPoint="0,0" StartPoint="0,1">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="#00000000" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                            <Canvas x:Name="PART_ColorShadeSelector" Height="10" IsHitTestVisible="False" Width="10">
+                                                <Ellipse Height="15" IsHitTestVisible="False" SnapsToDevicePixels="True" Stroke="White" StrokeThickness="2" Width="15"/>
+                                                <Ellipse Height="15" IsHitTestVisible="False" SnapsToDevicePixels="True" Stroke="Black" StrokeThickness="0.5" Width="15"/>
+                                            </Canvas>
+                                        </Canvas>
+                                    </Border>
+                                    <Border Margin="0,17,0,0" Grid.Row="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border Background="Transparent" BorderBrush="White" BorderThickness="1" Height="20" Margin="2,0">
+                                                <Rectangle x:Name="SelectedColor">
+                                                    <Rectangle.Fill>
+                                                        <Binding Path="SelectedColor" RelativeSource="{RelativeSource TemplatedParent}">
+                                                            <Binding.Converter>
+                                                                <wpfKit:ColorToSolidColorBrushConverter/>
+                                                            </Binding.Converter>
+                                                        </Binding>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                            </Border>
+                                            <TextBox x:Name="PART_HexadecimalTextBox" BorderBrush="Transparent" BorderThickness="0" Foreground="{StaticResource customBlueBrush}" IsReadOnly="True" SelectionBrush="White"  Grid.Column="1" Margin="2,0" VerticalAlignment="Center">
+
+                                            </TextBox>
+                                        </Grid>
+                                    </Border>
+                                    <Border ClipToBounds="False" Grid.Column="1" Margin="4,-8,0,0">
+                                        <wpfKit:ColorSpectrumSlider x:Name="PART_SpectrumSlider" SelectedColor="#FFFF0004" BorderBrush="White" BorderThickness="1" VerticalAlignment="Stretch"/>
+                                    </Border>
+                                </Grid>
+                                <Border BorderThickness="1" ClipToBounds="True" Margin="0,10,0,0" MinWidth="180" Grid.Row="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{DynamicResource RedColor}" Foreground="White" FontFamily="Segoe Ui Dark" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                                        <Slider x:Name="PART_RSlider" Style="{StaticResource RGBA_Slider}" Grid.Column="1" LargeChange="10" Maximum="255" Margin="15,10" Grid.Row="0" SmallChange="1" TickFrequency="1" Value="{Binding R, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center"/>
+                                        <TextBox Grid.Column="2" Style="{StaticResource Picker_TextBox}" BorderBrush="White" BorderThickness="0.5" Width="40" SelectionBrush="{StaticResource WhiteOpacity}" Foreground="White" Height="22" FontSize="14" FontFamily="Segoe Ui Dark" Grid.Row="0" Text="{Binding Value, ElementName=PART_RSlider}" VerticalAlignment="Center">
+
+                                        </TextBox>
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource GreenColor}" Foreground="White" FontFamily="Segoe Ui Dark" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                                        <Slider x:Name="PART_GSlider" Grid.Column="1" Style="{StaticResource RGBA_Slider}" LargeChange="10" Maximum="255" Margin="15,10"  Grid.Row="1" SmallChange="1" TickFrequency="1" Value="{Binding G, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center"/>
+                                        <TextBox Grid.Column="2" Style="{StaticResource Picker_TextBox}" BorderBrush="White" BorderThickness="0.5" Width="40" SelectionBrush="{StaticResource WhiteOpacity}" Foreground="White" Height="22" FontSize="14" FontFamily="Segoe Ui Dark" Grid.Row="1" Text="{Binding Value, ElementName=PART_GSlider}" VerticalAlignment="Center">
+
+                                        </TextBox>
+                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="{DynamicResource BlueColor}" Foreground="White" FontFamily="Segoe Ui Dark" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                                        <Slider x:Name="PART_BSlider" Style="{StaticResource RGBA_Slider}" Grid.Column="1" LargeChange="10" Maximum="255" Margin="15,10"  Grid.Row="2" SmallChange="1" TickFrequency="1" Value="{Binding B, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center"/>
+                                        <TextBox Grid.Column="3" Style="{StaticResource Picker_TextBox}" BorderBrush="White" BorderThickness="0.5" Width="40" SelectionBrush="{StaticResource WhiteOpacity}" Foreground="White" Height="22" FontSize="14" FontFamily="Segoe Ui Dark" Grid.Row="2" Text="{Binding Value, ElementName=PART_BSlider}" VerticalAlignment="Center">
+
+                                        </TextBox>
+                                        <TextBlock Grid.Column="0" Grid.Row="3" Text="{DynamicResource Alpha}" Foreground="White" FontFamily="Segoe Ui Dark" FontSize="14" VerticalAlignment="Center">
+                                            <TextBlock.Visibility>
+                                                <Binding Path="UsingAlphaChannel" RelativeSource="{RelativeSource TemplatedParent}">
+                                                    <Binding.Converter>
+                                                        <BooleanToVisibilityConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </TextBlock.Visibility></TextBlock>
+                                        <Slider x:Name="PART_OpacitySlider" Style="{StaticResource RGBA_Slider}" Grid.Column="1" LargeChange="10" Maximum="255"  Margin="15,10" Grid.Row="3" SmallChange="1" Value="{Binding A, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center">
+                                            <Slider.Visibility>
+                                                <Binding Path="UsingAlphaChannel" RelativeSource="{RelativeSource TemplatedParent}">
+                                                    <Binding.Converter>
+                                                        <BooleanToVisibilityConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </Slider.Visibility>
+                                        </Slider>
+                                        <TextBox Grid.Column="3" Style="{StaticResource Picker_TextBox}" BorderBrush="White" BorderThickness="0.5" Width="40" SelectionBrush="{StaticResource WhiteOpacity}" Foreground="White" Height="22" FontSize="14" FontFamily="Segoe Ui Dark" Grid.Row="3" Text="{Binding Value, ElementName=PART_OpacitySlider}" VerticalAlignment="Center">
+                                            <TextBox.Visibility>
+                                                <Binding Path="UsingAlphaChannel" RelativeSource="{RelativeSource TemplatedParent}">
+                                                    <Binding.Converter>
+                                                        <BooleanToVisibilityConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </TextBox.Visibility>
+                                        </TextBox>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style  TargetType="{x:Type wpfKit:ColorPicker}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource {ComponentResourceKey ResourceId=ControlNormalBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
+            <Setter Property="BorderThickness" Value="1,1,0,1"/>
+            <Setter Property="ButtonStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Grid SnapsToDevicePixels="True">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            </Border>
+                                            <wpfKit:ButtonChrome x:Name="ToggleButtonChrome" Grid.Column="1" CornerRadius="0" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" RenderChecked="{Binding IsOpen, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type wpfKit:ColorPicker}}}" RenderEnabled="{Binding IsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type wpfKit:ColorPicker}}}">
+                                                <wpfKit:ButtonChrome.Visibility>
+                                                    <Binding Path="ShowDropDownButton" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type wpfKit:ColorPicker}}">
+                                                        <Binding.Converter>
+                                                            <BooleanToVisibilityConverter/>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </wpfKit:ButtonChrome.Visibility>
+                                                <Grid x:Name="arrowGlyph" Grid.Column="1" IsHitTestVisible="False" Margin="5">
+                                                    <Path x:Name="Arrow" Data="M0,1C0,1 0,0 0,0 0,0 3,0 3,0 3,0 3,1 3,1 3,1 4,1 4,1 4,1 4,0 4,0 4,0 7,0 7,0 7,0 7,1 7,1 7,1 6,1 6,1 6,1 6,2 6,2 6,2 5,2 5,2 5,2 5,3 5,3 5,3 4,3 4,3 4,3 4,4 4,4 4,4 3,4 3,4 3,4 3,3 3,3 3,3 2,3 2,3 2,3 2,2 2,2 2,2 1,2 1,2 1,2 1,1 1,1 1,1 0,1 0,1z" Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Height="4" Width="7"/>
+                                                </Grid>
+                                            </wpfKit:ButtonChrome>
+                                        </Grid>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Fill" TargetName="Arrow" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type wpfKit:ColorPicker}">
+                        <Grid>
+                            <ToggleButton  x:Name="PART_ColorPickerToggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsTabStop="True" IsChecked="{Binding IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinHeight="22" Padding="{TemplateBinding Padding}" Style="{TemplateBinding ButtonStyle}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <ToggleButton.IsHitTestVisible>
+                                    <Binding Path="IsOpen" RelativeSource="{RelativeSource TemplatedParent}">
+                                        <Binding.Converter>
+                                            <wpfKit:InverseBoolConverter/>
+                                        </Binding.Converter>
+                                    </Binding>
+                                </ToggleButton.IsHitTestVisible>
+                                <Grid Margin="2">
+                                    <ContentControl x:Name="ColorOnly">
+                                        <ContentControl.Style>
+                                            <Style TargetType="{x:Type ContentControl}">
+                                                <Setter Property="ContentTemplate">
+                                                    <Setter.Value>
+                                                        <DataTemplate>
+                                                            <Border Background="Transparent">
+                                                                <Rectangle>
+                                                                    <Rectangle.Fill>
+                                                                        <Binding Path="SelectedColor" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type wpfKit:ColorPicker}}">
+                                                                            <Binding.Converter>
+                                                                                <wpfKit:ColorToSolidColorBrushConverter/>
+                                                                            </Binding.Converter>
+                                                                        </Binding>
+                                                                    </Rectangle.Fill>
+                                                                </Rectangle>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ContentControl.Style>
+                                    </ContentControl>
+                                    <Border x:Name="ColorAndName" Background="White" Visibility="Hidden">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentControl BorderBrush="{DynamicResource {ComponentResourceKey ResourceId=ControlNormalBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}" BorderThickness="1" HorizontalAlignment="Left" Margin="2,1,4,1" Width="20">
+                                                <ContentControl.Style>
+                                                    <Style TargetType="{x:Type ContentControl}">
+                                                        <Setter Property="ContentTemplate">
+                                                            <Setter.Value>
+                                                                <DataTemplate>
+                                                                    <Border Height="25" Width="25">
+                                                                        <Rectangle Height="25" Width="25">
+                                                                            <Rectangle.Fill>
+                                                                                <Binding Path="SelectedColor" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type wpfKit:ColorPicker}}">
+                                                                                    <Binding.Converter>
+                                                                                        <wpfKit:ColorToSolidColorBrushConverter/>
+                                                                                    </Binding.Converter>
+                                                                                </Binding>
+                                                                            </Rectangle.Fill>
+                                                                        </Rectangle>
+                                                                    </Border>
+                                                                </DataTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </ContentControl.Style>
+                                            </ContentControl>
+                                            <TextBlock Text="{Binding SelectedColorText, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </ToggleButton>
+                            <Popup x:Name="PART_ColorPickerPalettePopup" AllowsTransparency="True" Focusable="False"  HorizontalOffset="0" IsOpen="{Binding IsChecked, ElementName=PART_ColorPickerToggleButton}" PopupAnimation="Slide" StaysOpen="False" VerticalOffset="5" VerticalAlignment="Bottom">
+                                <Border Background="{StaticResource customBlueBrush}" BorderBrush="{StaticResource customBlueBrush}" BorderThickness="1" Padding="3">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid x:Name="_colorPaletteHost" Margin="4" Visibility="Collapsed">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="1">
+                                                <Grid.Visibility>
+                                                    <TemplateBinding Property="ShowAvailableColors">
+                                                        <TemplateBinding.Converter>
+                                                            <BooleanToVisibilityConverter/>
+                                                        </TemplateBinding.Converter>
+                                                    </TemplateBinding>
+                                                </Grid.Visibility>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock FontFamily="Segoe Ui Dark"  TextOptions.TextRenderingMode="Aliased" SnapsToDevicePixels="True" FontSize="14"  Foreground="White" Margin="0,0,0,5" Padding="2" Text="{TemplateBinding AvailableColorsHeader}"/>
+                                                    <ListBox FocusVisualStyle="{x:Null}"  BorderBrush="{StaticResource BlueopacityBrush}" Background="Transparent" BorderThickness="1"   x:Name="PART_AvailableColors" ItemsSource="{TemplateBinding AvailableColors}" Grid.Row="1">
+                                                        <ListBox.Style>
+                                                            <Style TargetType="{x:Type ListBox}">
+                                                                <Setter Property="Background" Value="Transparent"/>
+                                                                <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+                                                                <Setter Property="BorderThickness" Value="0"/>
+                                                                <Setter Property="ItemsPanel">
+                                                                    <Setter.Value>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel  IsItemsHost="True" Width="280"/>
+                                                                        </ItemsPanelTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="ItemContainerStyle">
+                                                                    <Setter.Value>
+                                                                        <Style TargetType="{x:Type ListBoxItem}">
+                                                                            <Setter Property="ToolTip" Value="{Binding Name}"/>
+                                                                            <Setter Property="Template">
+                                                                                <Setter.Value>
+                                                                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                                                                        <Grid>
+                                                                                            <Grid.ToolTip>
+                                                                                                <ToolTip Content="{Binding Name}" Style="{StaticResource Blue_Icon_Tooltipstyle}"></ToolTip>
+                                                                                            </Grid.ToolTip>
+                                                                                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                                                            <Border x:Name="_outerBorder"  BorderBrush="Transparent" BorderThickness="0.5" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                                                                <Border x:Name="_innerBorder" BorderBrush="Transparent" BorderThickness="0.5" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                                                                            </Border>
+                                                                                        </Grid>
+                                                                                        <ControlTemplate.Triggers>
+                                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                                <Setter Property="BorderBrush" TargetName="_outerBorder" Value="{StaticResource customDarkRedBrush}"/>
+                                                                                                <Setter Property="BorderThickness" TargetName="_outerBorder" Value="2"></Setter>
+                                                                                            </Trigger>
+                                                                                            <Trigger Property="IsSelected" Value="True">
+                                                                                                <Setter Property="BorderBrush" TargetName="_outerBorder" Value="{StaticResource customDarkRedBrush}"/>
+                                                                                            </Trigger>
+                                                                                        </ControlTemplate.Triggers>
+                                                                                    </ControlTemplate>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Style>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="ItemTemplate">
+                                                                    <Setter.Value>
+                                                                        <DataTemplate>
+                                                                            <Grid Height="20" Width="20">
+                                                                                <Border BorderBrush="{StaticResource BlueopacityBrush5}" Margin="0.8">
+                                                                                    <Rectangle>
+                                                                                        <Rectangle.Style>
+                                                                                            <Style TargetType="{x:Type Rectangle}">
+                                                                                                <Setter Property="Fill">
+                                                                                                    <Setter.Value>
+                                                                                                        <Binding Path="Color">
+                                                                                                            <Binding.Converter>
+                                                                                                                <wpfKit:ColorToSolidColorBrushConverter/>
+                                                                                                            </Binding.Converter>
+                                                                                                        </Binding>
+                                                                                                    </Setter.Value>
+                                                                                                </Setter>
+                                                                                            </Style>
+                                                                                        </Rectangle.Style>
+                                                                                    </Rectangle>
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </DataTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="SelectionMode" Value="Single"/>
+                                                            </Style>
+                                                        </ListBox.Style>
+                                                    </ListBox>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <Grid.Visibility>
+                                                    <TemplateBinding Property="ShowStandardColors">
+                                                        <TemplateBinding.Converter>
+                                                            <BooleanToVisibilityConverter/>
+                                                        </TemplateBinding.Converter>
+                                                    </TemplateBinding>
+                                                </Grid.Visibility>
+                                                <Grid Margin="0,10,0,0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock FontFamily="Segoe Ui Dark" FontSize="14" Margin="0,0,0,5"  Foreground="White"  Padding="2" Text="{TemplateBinding StandardColorsHeader}"/>
+                                                    <ListBox x:Name="PART_StandardColors" HorizontalAlignment="Left" Margin="0,0,0,0" ItemsSource="{TemplateBinding StandardColors}" Grid.Row="1">
+                                                        <ListBox.Style>
+                                                            <Style TargetType="{x:Type ListBox}">
+                                                                <Setter Property="Background" Value="Transparent"/>
+                                                                <Setter Property="BorderThickness" Value="0"/>
+                                                                <Setter Property="ItemsPanel">
+                                                                    <Setter.Value>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel  IsItemsHost="True"/>
+                                                                        </ItemsPanelTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="ItemContainerStyle">
+                                                                    <Setter.Value>
+                                                                        <Style TargetType="{x:Type ListBoxItem}">
+                                                                            <Setter Property="ToolTip" Value="{Binding Name}"/>
+                                                                            <Setter Property="Template">
+                                                                                <Setter.Value>
+                                                                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                                                                        <Grid>
+                                                                                            <Grid.ToolTip>
+                                                                                                <ToolTip Content="{Binding Name}" Style="{StaticResource Blue_Icon_Tooltipstyle}"></ToolTip>
+                                                                                            </Grid.ToolTip>
+                                                                                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                                            <Border x:Name="_outerBorder" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                                                                <Border x:Name="_innerBorder" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                                                                            </Border>
+                                                                                        </Grid>
+                                                                                        <ControlTemplate.Triggers>
+                                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                                <Setter Property="BorderBrush" TargetName="_outerBorder" Value="{StaticResource customBlueBrush}"/>
+                                                                                            </Trigger>
+                                                                                            <Trigger Property="IsSelected" Value="True">
+                                                                                                <Setter Property="BorderBrush" TargetName="_outerBorder" Value="{StaticResource customDarkRedBrush}"/>
+                                                                                            </Trigger>
+                                                                                        </ControlTemplate.Triggers>
+                                                                                    </ControlTemplate>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Style>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="ItemTemplate">
+                                                                    <Setter.Value>
+                                                                        <DataTemplate>
+                                                                            <Grid>
+                                                                                <Border BorderBrush="{StaticResource BlueopacityBrush5}" BorderThickness="1" Margin="1">
+                                                                                    <Ellipse Height="23" Width="23" Stroke="White" StrokeThickness="1" SnapsToDevicePixels="True">
+                                                                                        <Ellipse.Style>
+                                                                                            <Style TargetType="{x:Type Ellipse}">
+                                                                                                <Setter Property="Fill">
+                                                                                                    <Setter.Value>
+                                                                                                        <Binding Path="Color">
+                                                                                                            <Binding.Converter>
+                                                                                                                <wpfKit:ColorToSolidColorBrushConverter/>
+                                                                                                            </Binding.Converter>
+                                                                                                        </Binding>
+                                                                                                    </Setter.Value>
+                                                                                                </Setter>
+                                                                                            </Style>
+                                                                                        </Ellipse.Style>
+                                                                                    </Ellipse>
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </DataTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="SelectionMode" Value="Single"/>
+                                                            </Style>
+                                                        </ListBox.Style>
+                                                    </ListBox>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Margin="0,1" Grid.Row="3">
+                                                <Grid.Visibility>
+                                                    <TemplateBinding Property="ShowRecentColors">
+                                                        <TemplateBinding.Converter>
+                                                            <BooleanToVisibilityConverter/>
+                                                        </TemplateBinding.Converter>
+                                                    </TemplateBinding>
+                                                </Grid.Visibility>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock  Background="{StaticResource customBlueBrush}" Margin="0,0,0,5" Foreground="White" FontSize="14" FontFamily="Segoe Ui Dark"  Padding="2" Text="{TemplateBinding RecentColorsHeader}"/>
+                                                    <ListBox x:Name="PART_RecentColors" HorizontalAlignment="Left"  ItemsSource="{TemplateBinding RecentColors}"  Grid.Row="1">
+                                                        <ListBox.Style>
+                                                            <Style TargetType="{x:Type ListBox}">
+                                                                <Setter Property="Background" Value="Transparent"/>
+                                                                <Setter Property="BorderThickness" Value="0"/>
+                                                                <Setter Property="ItemsPanel">
+                                                                    <Setter.Value>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel  IsItemsHost="True"/>
+                                                                        </ItemsPanelTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="ItemContainerStyle">
+                                                                    <Setter.Value>
+                                                                        <Style TargetType="{x:Type ListBoxItem}">
+                                                                            <Setter Property="ToolTip" Value="{Binding Name}"/>
+                                                                            <Setter Property="Template">
+                                                                                <Setter.Value>
+                                                                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                                                                        <Grid>
+                                                                                            <Grid.ToolTip>
+                                                                                                <ToolTip Content="{Binding Name}" Style="{StaticResource Blue_Icon_Tooltipstyle}"></ToolTip>
+                                                                                            </Grid.ToolTip>
+                                                                                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                                            <Border x:Name="_outerBorder" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                                                                <Border x:Name="_innerBorder" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                                                                            </Border>
+                                                                                        </Grid>
+                                                                                        <ControlTemplate.Triggers>
+                                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                                <Setter Property="BorderBrush" TargetName="_outerBorder" Value="{StaticResource customDarkRedBrush}"/>
+                                                                                                <Setter Property="BorderBrush" TargetName="_innerBorder" Value="{StaticResource customDarkRedBrush}"/>
+                                                                                            </Trigger>
+                                                                                            <Trigger Property="IsSelected" Value="True">
+                                                                                                <Setter Property="BorderBrush" TargetName="_outerBorder" Value="{DynamicResource {ComponentResourceKey ResourceId=ControlSelectedBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
+                                                                                                <Setter Property="BorderBrush" TargetName="_innerBorder" Value="{DynamicResource {ComponentResourceKey ResourceId=ButtonMouseOverBackgroundKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
+                                                                                            </Trigger>
+                                                                                        </ControlTemplate.Triggers>
+                                                                                    </ControlTemplate>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Style>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="ItemTemplate">
+                                                                    <Setter.Value>
+                                                                        <DataTemplate>
+                                                                            <Grid>
+                                                                                <Border Height="25" Width="25" BorderBrush="{StaticResource BlueopacityBrush5}" BorderThickness="1" Margin="2">
+                                                                                    <Border>
+                                                                                        <Border.Style>
+                                                                                            <Style TargetType="{x:Type Border}">
+                                                                                                <Setter Property="CornerRadius" Value="2"></Setter>
+                                                                                                <Setter Property="Background">
+                                                                                                    <Setter.Value>
+                                                                                                        <Binding Path="Color">
+                                                                                                            <Binding.Converter>
+                                                                                                                <wpfKit:ColorToSolidColorBrushConverter/>
+                                                                                                            </Binding.Converter>
+                                                                                                        </Binding>
+                                                                                                    </Setter.Value>
+                                                                                                </Setter>
+                                                                                            </Style>
+                                                                                        </Border.Style>
+                                                                                    </Border>
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </DataTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Setter Property="SelectionMode" Value="Single"/>
+                                                            </Style>
+                                                        </ListBox.Style>
+                                                    </ListBox>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid x:Name="_colorCanvasHost" Visibility="Collapsed">
+                                            <wpfKit:ColorCanvas BorderThickness="0" Background="Transparent" SelectedColor="{Binding SelectedColor, RelativeSource={RelativeSource TemplatedParent}}" UsingAlphaChannel="{Binding UsingAlphaChannel, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </Grid>
+                                        <Separator Opacity="0" HorizontalAlignment="Stretch" Margin="5,0" Grid.Row="1">
+                                            <Separator.Visibility>
+                                                <TemplateBinding Property="ShowAdvancedButton">
+                                                    <TemplateBinding.Converter>
+                                                        <BooleanToVisibilityConverter/>
+                                                    </TemplateBinding.Converter>
+                                                </TemplateBinding>
+                                            </Separator.Visibility>
+                                        </Separator>
+
+                                        <Button x:Name="PART_ColorModeButton" BorderBrush="White" BorderThickness="1"  Style="{StaticResource Rectangle_Btn}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontFamily="Segoe Ui Dark" Height="32" Foreground="White" Background="{StaticResource customBlueBrush}" Margin="5,10,5,10" Grid.Row="2">
+                                            <Button.Visibility>
+                                                <TemplateBinding Property="ShowAdvancedButton">
+                                                    <TemplateBinding.Converter>
+                                                        <BooleanToVisibilityConverter/>
+                                                    </TemplateBinding.Converter>
+                                                </TemplateBinding>
+                                            </Button.Visibility>
+                                        </Button>
+                                        <Border Margin="5,10,5,10" Grid.Row="2" SnapsToDevicePixels="True" BorderBrush="White" BorderThickness="1" Height="32"/>
+                                    </Grid>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="DisplayColorAndName" Value="True">
+                                <Setter Property="Visibility" TargetName="ColorOnly" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="ColorAndName" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="ColorMode" Value="ColorPalette">
+                                <Setter Property="Visibility" TargetName="_colorPaletteHost" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="_colorCanvasHost" Value="Collapsed"/>
+                                <Setter Property="Content" TargetName="PART_ColorModeButton" Value="Define Custom Color"/>
+                            </Trigger>
+                            <Trigger Property="ColorMode" Value="ColorCanvas">
+                                <Setter Property="Visibility" TargetName="_colorPaletteHost" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="_colorCanvasHost" Value="Visible"/>
+                                <Setter Property="Content" TargetName="PART_ColorModeButton" Value="Go Back"/>
+                            </Trigger>
+                            <Trigger Property="ShowDropDownButton" Value="False">
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {ComponentResourceKey ResourceId=ControlMouseOverBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {ComponentResourceKey ResourceId=ControlSelectedBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+</ResourceDictionary>

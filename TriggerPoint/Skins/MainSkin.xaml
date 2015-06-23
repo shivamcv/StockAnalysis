@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/Color.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/Button.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/CheckBox.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/ComboBox.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/ComboBoxItem.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/RadioButton.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/Menu.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/MenuItem.xaml"/>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/DataGrid.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90380402d61147f2932892d19579e479" Name="Diagram1" ZoomLevel="43">
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Average" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_AverageParameters" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_BollingerBand" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_config_ColumnMapings" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_config_ColumnMapings_EOD" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_EODData" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_ErrorDetail" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_FormulaPortfolio" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_MACD" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_MACDFilters" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_MACDParameters" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Master" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Pivote" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Portfolio" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_RSI" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_RSIParameters" Width="1.5" PointX="11.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script_archive" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_ScriptMaster" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_ScriptPortfolio" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_ScriptUpload" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_ScriptUploadMaster" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_SplitMergeHistory" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Stochastic" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_SystemSetting" Width="1.5" PointX="13.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_User" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_UserDefineFormula" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_UserType" Width="1.5" PointX="13.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Volatility" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_config_Settings" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script_Ami" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script10Min" Width="1.5" PointX="15.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script120Min" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script15Min" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script1Min" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script20Min" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script30Min" Width="1.5" PointX="17.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script45Min" Width="1.5" PointX="6.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script5Min" Width="1.5" PointX="8.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script60Min" Width="1.5" PointX="10.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script885Min" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Script90Min" Width="1.5" PointX="23.375" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_ScriptEOD" Width="1.5" PointX="14.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="TriggerPointModel.FK_Tbl_Pivote_Tbl_ScriptMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="TriggerPointModel.FK_Tbl_Script_Tbl_ScriptMaster" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TriggerPointModel.sysdiagram" Width="1.5" PointX="17.375" PointY="18.75" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_Swing" Width="1.5" PointX="19.375" PointY="15.75" />
+        <EntityTypeShape EntityType="TriggerPointModel.Tbl_SwingParameters" Width="1.625" PointX="19.375" PointY="18.75" />
+        <EntityTypeShape EntityType="TriggerPointModel.TestTable1" Width="1.5" PointX="18.375" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

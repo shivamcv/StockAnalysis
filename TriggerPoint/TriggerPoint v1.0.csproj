@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E88E6EB-0062-4C84-9BE4-B70503663381}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TriggerPoint</RootNamespace>
+    <AssemblyName>TriggerPoint</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>B:\Workshop\trigger point\cv\Setups\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>lMain.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>654FEB05F04FB0117AFAB295B40CD3577FAAECC8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TriggerPoint_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\packages\MvvmLightLibs.4.4.32.7\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\packages\MvvmLightLibs.4.4.32.7\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.4.32.7\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\Avalondock\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.3\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Connection.xaml.cs">
+      <DependentUpon>Connection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\NotConverter.cs" />
+    <Compile Include="Data\GetFrom_And_To_Time_Result.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SelectData_AsPerDate_Result.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SelectData_AsPerTimeSlot1_Result.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SelectData_AsPerTimeSlot_Result.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_helpdiagrams_Result.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagram.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Average.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_AverageParameters.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_BollingerBand.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_config_ColumnMapings.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_config_ColumnMapings_EOD.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_config_Settings.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_EODData.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_ErrorDetail.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_FormulaPortfolio.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_MACD.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_MACDFilters.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_MACDParameters.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Master.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Pivote.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Portfolio.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_RSI.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_RSIParameters.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script10Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script120Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script15Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script1Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script20Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script30Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script45Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script5Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script60Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script885Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script90Min.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_ScriptEOD.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_ScriptMaster.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_ScriptPortfolio.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_ScriptUpload.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_ScriptUploadMaster.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script_Ami.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Script_archive.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_SplitMergeHistory.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Stochastic.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Swing.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_SwingParameters.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_SystemSetting.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_User.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_UserDefineFormula.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_UserType.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tbl_Volatility.cs">
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TriggerPointModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TriggerPointModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TriggerPointModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TriggerPointModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TriggerPointModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TriggerPointModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClasses\ErrorReporting.cs" />
+    <Compile Include="HelperClasses\SerialisableFont.cs" />
+    <Compile Include="HelperClasses\StandardDeviationExtension.cs" />
+    <Compile Include="HelperClasses\XMLHelper.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AverageData.cs" />
+    <Compile Include="Model\AverageIndicator.cs" />
+    <Compile Include="Model\BollingerData.cs" />
+    <Compile Include="Model\BollingerIndicator.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="Model\IndicatorStoredData.cs" />
+    <Compile Include="Model\MACDData.cs" />
+    <Compile Include="Model\MACDIndicator.cs" />
+    <Compile Include="Model\RSIData.cs" />
+    <Compile Include="Model\RSIIndicator.cs" />
+    <Compile Include="Model\StochasticData.cs" />
+    <Compile Include="Model\StochasticIndicator.cs" />
+    <Compile Include="Model\SwingData.cs" />
+    <Compile Include="Model\SwingIndicator.cs" />
+    <Compile Include="PopupWindow.xaml.cs">
+      <DependentUpon>PopupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddFormula.cs" />
+    <Compile Include="ViewModel\Average.cs" />
+    <Compile Include="ViewModel\AverageDialogViewModel.cs" />
+    <Compile Include="ViewModel\BollingerBand.cs" />
+    <Compile Include="ViewModel\BollingerDialogViewModel.cs" />
+    <Compile Include="ViewModel\DataDeletionViewModel.cs" />
+    <Compile Include="ViewModel\FormulaeOutputViewModel.cs" />
+    <Compile Include="ViewModel\IndicatorDataViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MACD.cs" />
+    <Compile Include="ViewModel\MACDDialogViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Connection.cs" />
+    <Compile Include="ViewModel\MergeSplitViewModel.cs" />
+    <Compile Include="ViewModel\PortfolioMasterViewModel.cs" />
+    <Compile Include="ViewModel\RSI.cs" />
+    <Compile Include="ViewModel\RSIDialogViewModel.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
+    <Compile Include="ViewModel\Swing.cs" />
+    <Compile Include="ViewModel\SwingDialogViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\AddFormula.xaml.cs">
+      <DependentUpon>AddFormula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Average.xaml.cs">
+      <DependentUpon>Average.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AverageDialog.xaml.cs">
+      <DependentUpon>AverageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BollingerBand.xaml.cs">
+      <DependentUpon>BollingerBand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BollingerBandDialog.xaml.cs">
+      <DependentUpon>BollingerBandDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clock.xaml.cs">
+      <DependentUpon>Clock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataDeletion.xaml.cs">
+      <DependentUpon>DataDeletion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IndicatorColumns.xaml.cs">
+      <DependentUpon>IndicatorColumns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MACD.xaml.cs">
+      <DependentUpon>MACD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MACDDialog.xaml.cs">
+      <DependentUpon>MACDDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MergeSplitView.xaml.cs">
+      <DependentUpon>MergeSplitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PortfolioMaster.xaml.cs">
+      <DependentUpon>PortfolioMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RSI.xaml.cs">
+      <DependentUpon>RSI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RSIDialog.xaml.cs">
+      <DependentUpon>RSIDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatusBarView.xaml.cs">
+      <DependentUpon>StatusBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stochastic.xaml.cs">
+      <DependentUpon>Stochastic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StochasticDialog.xaml.cs">
+      <DependentUpon>StochasticDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Swing.xaml.cs">
+      <DependentUpon>Swing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SwingDialog.xaml.cs">
+      <DependentUpon>SwingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemeColor.xaml.cs">
+      <DependentUpon>ThemeColor.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Connection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Converters\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PopupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Skins\MainSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Color.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboboxItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddFormula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Average.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AverageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BollingerBand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BollingerBandDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataDeletion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IndicatorColumns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MACD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MACDDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MergeSplitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PortfolioMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RSI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RSIDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatusBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Stochastic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StochasticDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Swing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SwingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemeColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <EntityDeploy Include="Data\TriggerPointModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TriggerPointModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\TriggerPointModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TriggerPointModel.edmx</DependentUpon>
+      <LastGenOutput>TriggerPointModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Data\TriggerPointModel.edmx.diagram">
+      <DependentUpon>TriggerPointModel.edmx</DependentUpon>
+    </None>
+    <None Include="Data\TriggerPointModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TriggerPointModel.edmx</DependentUpon>
+      <LastGenOutput>TriggerPointModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Average.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_AverageParameters.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_BollingerBand.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_config_ColumnMapings.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_config_ColumnMapings_EOD.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_config_Settings.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_EODData.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_ErrorDetail.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_FormulaPortfolio.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_MACD.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_MACDFilters.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_MACDParameters.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Master.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Pivote.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Portfolio.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_RSI.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_RSIParameters.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script10Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script120Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script15Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script1Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script20Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script30Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script45Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script5Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script60Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script885Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script90Min.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_ScriptEOD.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_ScriptMaster.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_ScriptPortfolio.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_ScriptUpload.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_ScriptUploadMaster.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script_Ami.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Script_archive.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_SplitMergeHistory.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Stochastic.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_StochasticParameters.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_SystemSetting.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_User.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_UserDefineFormula.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_UserType.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.Tbl_Volatility.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.TestTable.datasource" />
+    <None Include="Properties\DataSources\TriggerPoint.Data.TriggerPointContext.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="TriggerPoint_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="lMain.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\logo.png" />
+    <Content Include="Data\TriggerPointModel.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

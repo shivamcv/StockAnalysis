@@ -1,0 +1,51 @@
+﻿<Page x:Class="TriggerPoint.Views.AddFormula"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="200"
+      Height="370" Width="550"
+      DataContext="{Binding Source={StaticResource Locator}, Path=AddFormula}"
+	Title="AddFormula">
+    <Grid Background="{StaticResource Gray}" TextElement.Foreground="{StaticResource White}" TextElement.FontSize="18" TextElement.FontFamily="Segoe Ui Light">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".8*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Add Formula" FontWeight="Bold" Grid.ColumnSpan="2"  FontSize="40" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Center"></TextBlock>
+        
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0" Text="Indicator Type"/>
+            <ComboBox SelectedIndex="0" SelectedValue="{Binding SelectedIndicatorType}" ItemsSource="{Binding IndicatorTypes}" Grid.Row="1" Margin="0,0,10,0" Height="30" Grid.Column="1"/>
+
+        <TextBlock Grid.Row="2" Text="Indicator" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+        <ComboBox SelectedIndex="0" DisplayMemberPath="Value" ItemsSource="{Binding Indicators}" SelectedValue="{Binding SelectedIndicator}" Grid.Row="2" Margin="0,0,10,0" Height="30"  Grid.Column="1"/>
+
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+            <RadioButton IsChecked="{Binding IsScript}" Margin="10,0" Content="Script"/>
+            <RadioButton IsChecked="{Binding IsPortfolio}" Content="Portfolio"/>
+        </StackPanel>
+
+
+        <TextBlock Grid.Row="4"  Text="Script" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+        <ComboBox IsEditable="True" TextSearch.TextPath="Value" SelectedIndex="0" IsTextSearchCaseSensitive="False" IsTextSearchEnabled="True"  DisplayMemberPath="Value" ItemsSource="{Binding ScriptList}" SelectedItem="{Binding SelectedScript}" Grid.Row="4" Margin="0,0,10,0" Height="30"  Grid.Column="1"/>
+
+
+        <TextBlock Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0" Text="Time Period"/>
+        <ComboBox  SelectedIndex="0" ItemsSource="{Binding TimePeriod}" SelectedValue="{Binding SelectedTimePeriod}" Grid.Row="5" Margin="0,0,10,0" Height="30"  Grid.Column="1"/>
+      
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button CommandParameter="{Binding RelativeSource={RelativeSource Self}}" Content="OK" Height="35" Width="100" Margin="0,0,20,0" Background="{StaticResource Blue}"  Foreground="{StaticResource White}" FontFamily="Segoe Ui Light"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding Ok}"/>
+            <Button Content="Cancel" Height="35" Width="100" Background="{StaticResource Blue}"  Foreground="{StaticResource White}" FontFamily="Segoe Ui Light"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Close"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TriggerPoint.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PrimaryColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">35, 39, 48</Value>
+    </Setting>
+    <Setting Name="SecondaryColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 97, 152</Value>
+    </Setting>
+    <Setting Name="BgColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="AverageColumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AverageDataId, ScriptId, ScriptName, DateTime, Open, High, Low, Average, Close, RecordId, DateTimeSlot</Value>
+    </Setting>
+    <Setting Name="BollingerColumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">id,RecordId,ScriptId,DateTimeSlot,DateTime,Open,High,Low,Close,SMA,StandardDeviation,Deviations,LowerBand,UpperBand,ScriptName</Value>
+    </Setting>
+    <Setting Name="MACDCloumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MACDDataId,ScriptId,RecordId,ScriptName,DateTimeSlot,DateTime,Open,High,Low,Close,EMA1,EMA2,MACD,Signal,Percentage,Histogram,TragetGen,BuySellPrice</Value>
+    </Setting>
+    <Setting Name="RSIColumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RSIDataId,ScriptId,ScriptName,DateTimeSlot,DateTime,Open,High,Low,Close,RecordId,Change,Advance,Decline,AvgGain_Slow,AvgLoss_Slow,RS_Slow,RSI_Slow,AvgGain_Fast,AvgLoss_Fast,RS_Fast,RSI_Fast,TargetGenFast,BuySellPriceFast,TargetFast</Value>
+    </Setting>
+    <Setting Name="SwingColumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SwingDataId,ScriptId,ScriptName,DateTimeSlot,DateTime,Open,High,Low,Close,SwingIndex,ATR,ATRAvg,UpperBand,LowerBand,AvgLowerBand,AvgUpperBand,DiffUp,DiffLow,Call,RecordId</Value>
+    </Setting>
+    <Setting Name="StochasticColumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

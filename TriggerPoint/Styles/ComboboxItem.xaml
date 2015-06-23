@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--combobox item style-->
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Grid x:Name="Border" Height="30" Margin="2" Grid.ColumnSpan="2"  Background="Transparent">
+                        <ContentPresenter VerticalAlignment="Center" TextElement.Foreground="White" Margin="10,0,0,0" TextElement.FontFamily="Segoe Ui Light" TextElement.FontSize="16"></ContentPresenter>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource Blue}"></Setter>
+                        </Trigger>
+                        <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                          
+                            <Setter Property="Opacity" Value="0.5"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

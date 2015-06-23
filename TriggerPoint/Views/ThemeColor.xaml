@@ -1,0 +1,40 @@
+﻿<Page x:Class="TriggerPoint.Views.ThemeColor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:wpfKit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:Themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit"
+      mc:Ignorable="d" 
+      DataContext="{Binding Source={StaticResource Locator}, Path=Settings}"
+      Height="300" Width="350"
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="ThemeColor">
+    <Page.Resources>
+        <ResourceDictionary Source="/TriggerPoint;component/Styles/ColorPicker.xaml"/>
+    </Page.Resources>
+    <Grid Background="{StaticResource Gray}">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="{StaticResource White}" TextElement.FontSize="16" TextElement.FontFamily="Segoe Ui Dark">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Color1" VerticalAlignment="Center" ></TextBlock>
+        <TextBlock Text="Color2" Grid.Row="1" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Background" Grid.Row="2" VerticalAlignment="Center"></TextBlock>
+            <wpfKit:ColorPicker SelectedColor="{Binding BgColor}"  AvailableColorsHeader="Available Color" StandardColorsHeader="Standard Color" RecentColorsHeader="Recent Color"   ShowRecentColors="True" Width="200" ButtonStyle="{StaticResource ColorPickerToggleButton}" Height="32" Grid.Column="1"  HorizontalAlignment="Left"></wpfKit:ColorPicker>
+        <wpfKit:ColorPicker SelectedColor="{Binding SecondaryColor}" AvailableColorsHeader="Available Color" StandardColorsHeader="Standard Color" RecentColorsHeader="Recent Color"    ShowRecentColors="True" Width="200" ButtonStyle="{StaticResource ColorPickerToggleButton}" Height="32"  Grid.Row="1"   Grid.Column="1" HorizontalAlignment="Left"></wpfKit:ColorPicker>
+            <wpfKit:ColorPicker SelectedColor="{Binding PrimaryColor}" AvailableColorsHeader="Available Color" StandardColorsHeader="Standard Color" RecentColorsHeader="Recent Color"   ShowRecentColors="True" Width="200" ButtonStyle="{StaticResource ColorPickerToggleButton}" Height="32" Grid.Row="2"   Grid.Column="1" HorizontalAlignment="Left"></wpfKit:ColorPicker>
+            <Button Command="{Binding RestoreDefault}"  Padding="2" HorizontalAlignment="Center" Grid.Row="4"  Width="200" Content="Restore Default" Style="{StaticResource Rectangle_Btn}" Height="40"  Margin="0,10,0,0" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe Ui Dark" Foreground="{StaticResource White}"  Background="{StaticResource Blue}"  BorderThickness="1" BorderBrush="White" />
+            <Button Command="{Binding Save}"  Padding="2" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1"  Width="200" Content="Save" Style="{StaticResource Rectangle_Btn}" Height="40"  Margin="0,10,0,0" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe Ui Dark" Foreground="{StaticResource White}"  Background="{StaticResource Blue}"  BorderThickness="1" BorderBrush="White" />
+        <Border BorderThickness="0,1,0,0" Grid.ColumnSpan="2" BorderBrush="{StaticResource BlueopacityBrush5}" Grid.Row="4" SnapsToDevicePixels="True" Margin="0,0,10,0" ></Border>
+    </Grid>
+    </Grid>
+</Page>
